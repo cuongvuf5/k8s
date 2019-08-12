@@ -180,7 +180,7 @@ spec:
   selector:
     k8s-app: kubernetes-dashboard
   sessionAffinity: None
-  type:<b>ClusterIP</b>
+  type: ClusterIP
 status:
   loadBalancer: {}
 ```
@@ -200,16 +200,18 @@ Find the correct node running Dashboard (sometime it isn't a Master Node)
 ```
 kubectl get nodes --all-namespaces
 ```
+```
 NAME            STATUS   ROLES    AGE     VERSION
 ip-10-0-1-154   Ready    <none>   5m14s   v1.13.5
 ip-10-0-1-198   Ready    master   6m6s    v1.13.5
 ip-10-0-1-42    Ready    <none>   5m11s   v1.13.5
 ip-10-0-1-60    Ready    <none>   5m23s   v1.13.5
-  
+```
 ```
 kubectl get pods --all-namespaces -o wide
 ```
 You will see something like this:
+```
 NAMESPACE              NAME                                          READY   STATUS    RESTARTS   AGE     IP           NODE            NOMINATED NODE   READINESS GATES
 kube-system            coredns-54ff9cd656-gf5x5                      1/1     Running   0          6m1s    10.244.0.2   ip-10-0-1-198   <none>           <none>
 kube-system            coredns-54ff9cd656-xjr7g                      1/1     Running   0          6m1s    10.244.0.3   ip-10-0-1-198   <none>           <none>
@@ -227,6 +229,7 @@ kube-system            kube-proxy-rfmpr                              1/1     Run
 kube-system            kube-scheduler-ip-10-0-1-198                  1/1     Running   0          5m18s   10.0.1.198   ip-10-0-1-198   <none>           <none>
 kubernetes-dashboard   kubernetes-dashboard-7648564c7b-9wv8g         1/1     Running   0          4m      10.244.1.2   ip-10-0-1-60    <none>           <none>
 kubernetes-dashboard   kubernetes-metrics-scraper-55bd7b7d95-zg77l   1/1     Running   0          4m      10.244.2.2   ip-10-0-1-154   <none>           <none>
+```
 
 In this case, the Dashboard is running on Worker node with Private IP "10.0.1.60". Then connect to the dashboard from browser using the IP and the port (30182 in this case):
 ```
