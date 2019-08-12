@@ -236,6 +236,8 @@ In this case, the Dashboard is running on Worker node with Private IP "10.0.1.60
 https://<IP>:<port>   --> https://10.0.1.60:30182
 ```
 # Installing helm
+Helm is a package manager for Kubernetes that allows developers and operators to more easily configure and deploy applications on Kubernetes clusters.
+
 ```
 sudo snap install helm --classic
 kubectl -n kube-system create serviceaccount tiller
