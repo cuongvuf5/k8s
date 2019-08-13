@@ -1,3 +1,4 @@
+# Credited to Bien - my colleague in F5
 # Install Kubernetes (k8s) on ubuntu 18.04 LTS
 
 # Install docker
